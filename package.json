@@ -1,0 +1,27 @@
+{
+  "name": "Guotp",
+  "version": "1.0.0",
+  "description": "Gu otp api REST",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "freud_kint",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "git": "^0.1.5",
+    "jsonwebtoken": "^8.5.1",
+    "mariadb": "^3.0.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.19",
+    "request": "^2.88.2",
+    "sequelize": "^6.21.3",
+    "twilio": "^3.83.1"
+  }
+}
