@@ -1,22 +1,23 @@
 
-require('dotenv')
+import 'dotenv';
 
-const config = require('../config');
+import { serviceID , accountSID , authToken } from '../config';
 //const client = require('twilio')(config.accountSID, config.authToken);
-console.log('accountSID = ',process.env.accountSID);
-console.log('serviceID = ',process.env.serviceID);
-console.log('token = ',process.env.authToken);
-const client = require('twilio')(process.env.accountSID, process.env.authToken);
+// console.log('accountSID = ',process.env.accountSID);
+// console.log('serviceID = ',process.env.serviceID);
+// console.log('token = ',process.env.authToken);
+//const client = require('twilio')(process.env.accountSID, process.env.authToken);
+const client = require('twilio')(accountSID, authToken);
 //const client = require('twilio')('AC78c2cc58be4765d163992bc345472675', 'e31b9ff8f6da2c001ef5d39002bd4cf7');
 
 
 // get Entreprise
-exports.login = (req , res) => {
+export function login(req , res) {
   
     if (req.query.phonenumber) {
         client
         .verify
-        .services(config.serviceID)
+        .services(serviceID)
         .verifications
         .create({
             to: `+${req.query.phonenumber}`,
@@ -37,14 +38,14 @@ exports.login = (req , res) => {
         })
      }
 
-};
+}
 
-exports.verify = (req , res) => {
+export function verify(req , res) {
 
     if (req.query.phonenumber && req.query.code.length === 6) {
         client
             .verify
-            .services(config.serviceID)
+            .services(serviceID)
             .verificationChecks
             .create({
                 to: `+${req.query.phonenumber}`,
